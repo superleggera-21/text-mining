@@ -73,8 +73,15 @@ for movieid, score in userscore.items():
     else:
         counter += 0
 
+# Displaying results to question 1
 print("Critics overpraise these movies " + str(counter) + " times more than normal viewers out of "
       + str(len(criticsscore)) + " movies in total.")
+if counter < (len(criticsscore) - counter):
+    print("Because the critics overpraise less than half of the movies sampled here, the critics are more refrained "
+          "than the users on IMDb.")
+else:
+    print("Because the critics overpraise no less than half of the movies sampled here, the critics are less refrained "
+          "than the users on IMDb.")
 
 # Question 2: Is the IMDB score closer to the users' sentiment? Or the critics.
 
@@ -86,6 +93,14 @@ for movieid, score in criticsscore.items():
     else:
         criticiscloser += 1
 
+# Displaying results to question 2
 print("Critics are more closer to the ratings for " + str(criticiscloser) +
       " times, while normal viewers are closer " + str(useriscloser) + " times out of " +
       str(len(criticsscore)) + " movies in total.")
+
+if useriscloser > criticiscloser:
+    print("Because the more movies have users resembling closer to the rating, the critics are less accurate "
+          "than the users on IMDb.")
+else:
+    print("Because the more movies have critics resembling closer to the rating, the users are less accurate "
+          "than the users on IMDb.")
